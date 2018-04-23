@@ -124,6 +124,8 @@ fmt.Print(a,b)
 	fmt.Print("hello"+" world!")
 	// fmt.Scanf("%s",k)
 	arrays()
+	controls()
+	pointer()
 }
 
 func controls(){
@@ -143,9 +145,48 @@ func controls(){
 			case 3:fmt.Println("prime two")
 			default:fmt.Println("not prime")
 		}
-	}
-}
+		// a switch like if else
+		switch {
+			case i==1:fmt.Println("prime one")
+			case i==3:fmt.Println("prime two")
+			default:fmt.Println("not prime")
+		}
 
+	}
+	// a while loop
+	count:=0
+	for count<10 {
+		count+=1
+	}
+
+	// defer execution, first in last out
+	count2:=0
+	for count2<10{
+		count2+=1
+		defer println(count2)
+	}	
+
+}
+/*
+ Pointers
+*/
+func pointer(){
+ var num=10;
+ var num2=99;
+// & pointer
+p:=&num
+ // memory address
+println(p)
+// actual value
+println(*p)
+// change the value of the variable pointed by pointer
+*p=20
+// now num is 20
+println(num)
+// point to other num
+p=&num2
+println(*p)
+}
 /* function with typings and multiple returns */
 func add( x int, y int )(int,string){
 	return 9,"hi"
@@ -168,4 +209,19 @@ func variables(){
 	// short assignment and declare
 	k,j :=2,4
 	println(k,j)
+}
+type Person struct {
+gender string
+height int
+}
+func structure(){
+	println(Person{"male",176})
+	tom:=Person{"male",176}
+	tom.height=8488
+	// assign by pointer
+	p:=&tom
+	println(p)
+	// explict property assignment
+	println(Person{gender:"female",height:94949})
+
 }
