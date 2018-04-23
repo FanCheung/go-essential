@@ -32,14 +32,12 @@ arrE:= [4][2]int{{1,1},{1,1},{1,1},{1,1}}
 println("Multi dimensional array: ",arrE)
 var arrF [4][2]int
 // copy array 
-
 arrF=arrE
 println(arrF)
-
 }
 
 func main(){
-/* Slice ************************************/
+/* Slice **************************************/
 // declare a slice very similar to array but not specifying index
 var sliceC []int
 
@@ -135,6 +133,10 @@ func controls(){
 		if i%2 ==0 {
 		fmt.Println(i)
 		}
+		// if with extra one statement
+		if v:=4;v<3{
+			println("v<3")	
+		}
 		// switch
 		switch i{
 			case 1:fmt.Println("prime one")
@@ -142,5 +144,28 @@ func controls(){
 			default:fmt.Println("not prime")
 		}
 	}
+}
 
+/* function with typings and multiple returns */
+func add( x int, y int )(int,string){
+	return 9,"hi"
+}
+
+/* Named return */
+func square(y int)(x int){
+x=y*y
+// no need to specify return variable or value
+return 
+}
+
+
+func variables(){
+	// var typing
+	var z bool =true
+	// multiple assignment
+	var x,y int=1,2
+	println(x,y,z)
+	// short assignment and declare
+	k,j :=2,4
+	println(k,j)
 }
